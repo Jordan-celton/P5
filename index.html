@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Slab:wght@400;900&display=swap"
       rel="stylesheet"
     />
+    <script src="./assets/script.js" defer></script>
   </head>
   <body>
     <header class="container">
@@ -26,20 +27,40 @@
     <main>
       <div id="banner">
         <div class="caroussel">
-          <button class="btn" id="prev">
-            <img src="/assets/images/arrow_left.png" alt="flèche de gauche" />
+          <button class="btn arrow arrow_left" id="prev">
+            <img src="./assets/images/arrow_left.png" alt="flèche de gauche" />
           </button>
-          <button class="btn" id="next">
-            <img src="/assets/images/arrow_right.png" alt="flèche de droite" />
+          <button class="btn arrow arrow_right" id="next">
+            <img src="./assets/images/arrow_right.png" alt="flèche de droite" />
           </button>
         </div>
         <img
-          class="banner-img"
+          class="banner-img slide"
           src="./assets/images/slideshow/slide1.jpg"
           alt="Banner Print-it"
         />
+        <img
+          class="banner-img slide"
+          src="./assets/images/slideshow/slide2.jpg"
+          alt="Banner Print-it"
+        />
+        <img
+          class="banner-img slide"
+          src="./assets/images/slideshow/slide3.jpg"
+          alt="Banner Print-it"
+        />
+        <img
+          class="banner-img slide"
+          src="./assets/images/slideshow/slide4.png"
+          alt="Banner Print-it"
+        />
         <p>Impressions tous formats <span>en boutique et en ligne</span></p>
-        <div class="dots"></div>
+        <div class="dots">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
       </div>
       <section id="about-us" class="container">
         <div>
