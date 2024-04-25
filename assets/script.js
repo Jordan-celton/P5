@@ -22,9 +22,25 @@ const prevButton = document.getElementById("prev");
 // déclare la variable pour récupérer l'id "prev";
 const nextButton = document.getElementById("next");
 // déclare la variable pour récupérer l'id "next";
+const bannerImage = document.querySelector(".banner-img");
+// déclare la variable pour récupérer la classe banner-img;
+const tagline = document.querySelector(".tagline");
+// déclare la variable pour récupérer la classe tagline;
+const dots = document.querySelectorAll(".dot");
+// déclare la variable pour récupérer la classe dot;
 
 let currentSlideIndex = 0;
 // je viens définir une variable sur la position 0;
+
+function updateSlide() {
+  // création de la fonction au moment du clic;
+  const slide = slides[currentSlideIndex];
+  // déclare une variable à partir du tableau "slides" en fonction de son positionnement;
+  bannerImage.src = "./assets/images/slideshow/" + slide.image;
+  // on indique le chemin vers les images de notre dossier + leur positionnement à chaque clic;
+  tagline.innerHTML = slide.tagLine;
+  // permet de mettre à jour le texte sous l'image dès le changement de celle-ci;
+}
 
 prevButton.addEventListener("click", () => {
   // je définis un événement au clic sur le bouton avec l'id "prev";
@@ -34,6 +50,7 @@ prevButton.addEventListener("click", () => {
     currentSlideIndex = slides.length - 1;
     // Si l'indice de la diapositive actuelle est inférieur à zéro, alors définir l'indice de la diapositive actuelle sur la position précédente dans le tableau "slides";
   }
+  updateSlide();
 });
 
 nextButton.addEventListener("click", () => {
@@ -44,4 +61,5 @@ nextButton.addEventListener("click", () => {
     // si l'indice de la position actuelle est supérieur ou égal à la longueur du tableau alors on définit l'indice de la diapositive à zéro.
     // on revient donc à la 1ere image;
   }
+  updateSlide();
 });
