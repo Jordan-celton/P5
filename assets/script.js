@@ -40,6 +40,15 @@ function updateSlide() {
   // on indique le chemin vers les images de notre dossier + leur positionnement à chaque clic;
   tagline.innerHTML = slide.tagLine;
   // permet de mettre à jour le texte sous l'image dès le changement de celle-ci;
+  dots.forEach((dot, index) => {
+    if (index === currentSlideIndex) {
+      dot.classList.add("dot_selected");
+      // pour chaque point si leur position correspond à la position actuelle de notre tableau alors on leur ajoute la classe "dot_selected"
+    } else {
+      dot.classList.remove("dot_selected");
+      // sinon on leur enlève la classe;
+    }
+  });
 }
 
 prevButton.addEventListener("click", () => {
@@ -51,6 +60,7 @@ prevButton.addEventListener("click", () => {
     // Si l'indice de la diapositive actuelle est inférieur à zéro, alors définir l'indice de la diapositive actuelle sur la position précédente dans le tableau "slides";
   }
   updateSlide();
+  // appelle de la fonction pour qu'elle fonctionne au clic;
 });
 
 nextButton.addEventListener("click", () => {
@@ -62,4 +72,16 @@ nextButton.addEventListener("click", () => {
     // on revient donc à la 1ere image;
   }
   updateSlide();
+  // appelle de la fonction pour qu'elle fonctionne au clic;
+});
+
+dots.forEach((dot, index) => {
+  // forEach car on vient dans un tableau chercher dots pour lui donner une fonction;
+  dot.addEventListener("click", () => {
+    // on ajoute un événement au clic pour dot
+    currentSlideIndex = index;
+    // on indique que index représente currentSlideIndex
+    updateSlide();
+    // appelle de la fonction
+  });
 });
